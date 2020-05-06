@@ -89,7 +89,7 @@ wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/eng/eng.pun
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/eng/eng.numbers
 
 # kor
-cd $LANGDATA_DIR
+cd $LANGDATA_DIR/kor
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/kor/kor.training_text
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/kor/kor.wordlist
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata/master/kor/kor.punc
