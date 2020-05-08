@@ -10,4 +10,4 @@ tesstraining/tesseract/src/training/tesstrain.sh --fonts_dir fonts \
 	     --tessdata_dir tesstraining/tesseract/tessdata \
 	     --save_box_tiff \
 	     --maxpages 10 \
-	     --output_dir tesstraining/train/
+	     --output_dir tesstraining/train/kortrain
