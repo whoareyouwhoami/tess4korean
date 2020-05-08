@@ -18,14 +18,33 @@ This script will download all the necessary files required for training.
 
 #### 1\_generate\_data.sh
 
-Generating images for training using fonts specified at `fonts` folder.
+Generating training data using fonts specified at `fonts` folder.
 
 #### 2\_extract\_lstm.sh
 
-Extract `lstm` from traineddata
+Extracts a model from `.traineddata`
 
 #### 3\_eval\_initial.sh
 
 Running this script will cause `Encoding of string failed! Failure bytes
 / Can't encode transcription` errors. This means that the characters
-found in the image are not in the unicharset.
+found in the training data are not in the unicharset.
+
+#### 4\_generate\_traineddata.sh
+
+To solve the problem above, original unicharset will be merged into the
+current unicharset to make sure that all characters are included.
+Unicharset files will be combined to produce a new `.traineddata`.
+
+#### 5\_finetune.sh
+
+Time to train\! **`--max_iterations` is set to `400`**
+
+#### 6\_eval\_check.sh
+
+Running this won’t give any encoding errors anymore. Try various
+`--max_iterations` to see changes in error rate.
+
+#### 7\_combine.sh
+
+Converting training checkpoint to `.traineddata`

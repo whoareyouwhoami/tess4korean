@@ -73,6 +73,7 @@ wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/kor/ko
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/kor/kor.wordlist
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/kor/kor.punc
 wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/kor/kor.numbers
+wget https://raw.githubusercontent.com/tesseract-ocr/langdata_lstm/master/kor/kor.unicharset
 
 
 # LANGDATA
