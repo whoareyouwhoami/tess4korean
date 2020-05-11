@@ -7,11 +7,8 @@ MAX_PAGES=10
 DEBUG=-1
 ITERATION=400
 
-# Root Directory
-BASE_DIR=${PWD}
-
 # Training Directory
-TRAIN_BASE_DIR=$BASE_DIR/tesstraining
+TRAIN_BASE_DIR=tesstraining
 TRAIN_DIR=$TRAIN_BASE_DIR/train
 
 # Language Training Directory
