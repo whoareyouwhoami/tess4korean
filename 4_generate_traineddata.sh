@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source 0_config.sh
+
 # WARNING
 # ============
 # Run this script if you get encoding errors during lstmeval.
@@ -7,36 +9,32 @@
 
 echo "==== Unpacking traineddata for kor ===="
 
-combine_tessdata -u tesstraining/tesseract/tessdata/best/kor.traineddata tesstraining/train/kor.
-
+combine_tessdata -u $TRAIN_BASE_DIR/tesseract/tessdata/best/$LANG.traineddata $LANG_TRAIN_DIR/$LANG.
 
 echo "==== Setting new version ===="
 
-VERSION_STR="New kor version on $(date +%F) from"
+VERSION_STR="$LANG version on $(date +%F) from"
 
-sed -e "s/^/$VERSION_STR" tesstraining/train/kor.version > tesstraining/train/kor.new.version
-
+sed -e "s/^/$VERSION_STR" $LANG_TRAIN_DIR/$LANG.version > $LANG_TRAIN_DIR/$LANG.new.version
 
 echo "==== Merging unicharset ===="
 
-merge_unicharsets tesstraining/train/kor.lstm-unicharset tesstraining/train/kortrain/kor/kor.unicharset tesstraining/train/kor.unicharset
-
+merge_unicharsets $LANG_TRAIN_DIR/$LANG.lstm-unicharset $LANG_TRAIN_DIR/$LANG/$LANG.unicharset $LANG_TRAIN_DIR/$LANG.unicharset
 
 echo "==== New traineddata for training ===="
 
-if [ -d tesstraining/train/kortrain/kor ];then
-        mv tesstraining/train/kortrain/kor tesstraining/train/kortrain/kor_old
+if [ -d $LANG_TRAIN_DIR/$LANG ]; then
+  mv $LANG_TRAIN_DIR/$LANG $LANG_TRAIN_DIR/${LANG}_old
 fi
 
 combine_lang_model \
-        --input_unicharset tesstraining/train/kor.unicharset \
-        --script_dir tesstraining/langdata \
-        --words tesstraining/langdata/kor/kor.wordlist \
-        --numbers tesstraining/langdata/kor/kor.numbers \
-        --puncs tesstraining/langdata/kor/kor.punc \
-        --output_dir tesstraining/train/kortrain \
-        --lang kor \
-        --version_str tesstraining/train/kor.new.version
+  --input_unicharset $LANG_TRAIN_DIR/$LANG.unicharset \
+  --script_dir $LANGDATA_DIR \
+  --words $LANGDATA_DIR/$LANG/$LANG.wordlist \
+  --numbers $LANGDATA_DIR/$LANG/$LANG.numbers \
+  --puncs $LANGDATA_DIR/$LANG/$LANG.punc \
+  --output_dir $LANG_TRAIN_DIR \
+  --lang $LANG \
+  --version_str $LANG_TRAIN_DIR/$LANG.new.version
 
-echo "\nNew kor.traineddata created! \n"
-
+echo "\nNew $LANG.traineddata created! \n"

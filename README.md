@@ -12,39 +12,53 @@ Make sure you have Tesseract installed. See the last section from
 Up](https://whoareyouwhoami.github.io/docs/tesseract/train_tesseract.html)
 page and install required packages for training Tesseract.
 
-#### 0\_setup.sh
+#### 1\. Set variables for training
 
-This script will download all the necessary files required for training.
+Set variables before running this script.
 
-#### 1\_generate\_data.sh
+    sh 0_config.sh
 
-Generating training data using fonts specified at `fonts` folder.
+#### 2\. Download necessary files for training
 
-#### 2\_extract\_lstm.sh
+    ./0_setup.sh
 
-Extracts a model from `.traineddata`
+#### 3\. Generate training data
 
-#### 3\_eval\_initial.sh
+    ./1_generate_data.sh
+
+#### 4\. Extracting lstm model
+
+    ./2_extract_lstm.sh
+
+#### 5\. Evaluating
 
 Running this script will cause `Encoding of string failed! Failure bytes
 / Can't encode transcription` errors. This means that the characters
 found in the training data are not in the unicharset.
 
-#### 4\_generate\_traineddata.sh
+    ./3_eval_initial.sh
+
+#### 6\. Generate new traineddata
 
 To solve the problem above, original unicharset will be merged into the
 current unicharset to make sure that all characters are included.
 Unicharset files will be combined to produce a new `.traineddata`.
 
-#### 5\_finetune.sh
+    ./4_generate_traineddata.sh
 
-Time to train\! **`--max_iterations` is set to `400`**
+#### 7\. Fine Tuning
 
-#### 6\_eval\_check.sh
+    ./5_finetune.sh
+
+#### 8\. Evaluating
 
 Running this won’t give any encoding errors anymore. Try various
 `--max_iterations` to see changes in error rate.
 
-#### 7\_combine.sh
+    ./6_eval_check.sh
+
+#### 9\. Combine trained model
 
 Converting training checkpoint to `.traineddata`
+
+    ./7_combine.sh
