@@ -6,8 +6,8 @@ echo "==== Generating data for lang $LANG ==="
 
 rm -rf $LANG_TRAIN_DIR/*
 
-tesstraining/tesseract/src/training/tesstrain.sh --fonts_dir fonts \
-	     --fontlist $FONT_LIST \
+$TRAIN_BASE_DIR/tesseract/src/training/tesstrain.sh --fonts_dir fonts \
+	     --fontlist "${FONT_LIST}" \
 	     --lang $LANG \
 	     --linedata_only \
 	     --langdata_dir $LANGDATA_DIR \

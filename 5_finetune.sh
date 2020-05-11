@@ -2,8 +2,6 @@
 
 source 0_config.sh
 
-TRAIN_OUTPUT_DIR=tesstraining/output/kor
-
 if [ ! -d $OUTPUT_DIR ]; then
         mkdir $OUTPUT_DIR
 else
@@ -16,6 +14,6 @@ lstmtraining \
         --old_traineddata $TRAIN_BASE_DIR/tesseract/tessdata/best/$LANG.traineddata \
         --traineddata $LANG_TRAIN_DIR/$LANG/$LANG.traineddata \
         --train_listfile $LANG_TRAIN_DIR/$LANG.training_files.txt \
-        --model_output $OUTPUT_DIR \
+        --model_output $OUTPUT_DIR/$LANG \
         --max_iterations $ITERATION
 
