@@ -1,21 +1,20 @@
 #!/bin/bash
 
+source 0_config.sh
+
 # This is an initial set up script that will download all the necessary files required for training.
 # Any files and folders created or used for training will be saved under tesstraining
 
-BASE_DIR=${PWD}
-TESSTRAIN_DIR="${BASE_DIR}/tesstraining"
-LANGDATA_DIR="${TESSTRAIN_DIR}/langdata"
-LANGDATA_LSTM_DIR="${TESSTRAIN_DIR}/langdata_lstm"
+chmod +x 0_setup.sh 1_generate_data.sh 2_extract_lstm.sh 3_eval_initial.sh 4_generate_traineddata.sh 5_finetune.sh 6_eval_check.sh 7_combine.sh
 
-# Check if `tesstraining` folder exist
-if [ ! -d "${TESSTRAIN_DIR}" ]; then
-	mkdir $TESSTRAIN_DIR
+# Check if training folder exist
+if [ ! -d $TRAIN_DIR ]; then
+  mkdir $TRAIN_DIR
 else
-	rm -rf ${TESSTRAIN_DIR}/*
+	rm -rf $TRAIN_DIR/*
 fi
 
-cd $TESSTRAIN_DIR
+cd $TRAIN_DIR
 
 mkdir output langdata langdata_lstm
 

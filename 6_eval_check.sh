@@ -1,7 +1,9 @@
 #!/bin/bash
 
+source 0_config.sh
+
 lstmeval \
-        --model tesstraining/output/kor/kor_checkpoint \
-        --traineddata tesstraining/train/kortrain/kor/kor.traineddata \
-        --eval_listfile tesstraining/train/kortrain/kor.training_files.txt
+        --model $OUTPUT_DIR/${LANG}_checkpoint \
+        --traineddata $LANG_TRAIN_DIR/$LANG/$LANG.traineddata \
+        --eval_listfile $LANG_TRAIN_DIR/$LANG.training_files.txt
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
 lstmtraining --stop_training \
-        --continue_from tesstraining/output/kor/kor_checkpoint \
-        --traineddata tesstraining/train/kortrain/kor/kor.traineddata \
-        --model_output tesstraining/output/kor_new.traineddata
+        --continue_from $OUTPUT_DIR/${LANG}_checkpoint \
+        --traineddata $LANG_TRAIN_DIR/$LANG/$LANG.traineddata \
+        --model_output $OUTPUT_DIR/$LANG_new.traineddata
