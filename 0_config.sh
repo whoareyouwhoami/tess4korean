@@ -27,4 +27,4 @@ LANGDATA_DIR=$TRAIN_BASE_DIR/langdata
 # Langdata LSTM Directory
 LANGDATA_LSTM_DIR=$TRAIN_BASE_DIR/langdata_lstm
 
-chmod +x 0_setup.sh 1_generate_data.sh 2_extract_lstm.sh 3_eval_initial.sh 4_generate_traineddata.sh 5_finetune.sh 6_eval_check.sh 7_combine.sh
+chmod +x 0_setup.sh 1_generate_data.sh 2_extract_lstm.sh 3_eval_initial.sh 4_generate_traineddata.sh 5_continue_training.sh 5_finetune.sh 6_eval_check.sh 7_combine.sh
