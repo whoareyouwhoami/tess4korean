@@ -17,7 +17,14 @@ cd $TRAIN_BASE_DIR
 mkdir output langdata langdata_lstm
 
 # Cloning tesseract
-git clone https://github.com/tesseract-ocr/tesseract.git
+# tesstrain.sh isn't supported with new version of tesseract
+# git clone https://github.com/tesseract-ocr/tesseract.git
+
+# Using old tesseract (4.0)
+wget https://github.com/tesseract-ocr/tesseract/archive/refs/tags/4.0.0.zip
+unzip 4.0.0.zip
+rm -rf 4.0.0.zip
+mv tesseract-4.0.0 tesseract
 
 cd tesseract/tessdata
 
